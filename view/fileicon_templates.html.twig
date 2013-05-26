@@ -1,0 +1,9 @@
+{% macro getIconForFile(file) %}
+    {% set movieTypes = ['mkv', 'avi', 'mov', 'mp4'] %}
+    {% set extension = file.getFileName|split('.')|last %}
+    {% if extension in movieTypes %}
+        <span class="glyphicon glyphicon-film"></span>
+    {% else %}
+        <span class="glyphicon glyphicon-file"></span>
+    {% endif %}
+{% endmacro %}

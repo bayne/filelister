@@ -1,3 +1,4 @@
+{% from 'fileicon_templates.html.twig' import getIconForFile as getIconForFile  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,12 +50,12 @@
     <div class="list-group">
       {% for directory in directories %}
       <a href="{{ url('list', {'path': path~'/'~directory.getRelativePathName })}}" class="list-group-item">
-        {{ directory.getRelativePathName }}/
+        <span class="glyphicon glyphicon-folder-open"></span> {{ directory.getRelativePathName }}/
       </a>
       {% endfor %}
       {% for file in files %}
       <a href="{{ url('download', {'path': path~'/'~file.getRelativePathName })}}" class="list-group-item">
-        {{ file.getFileName }}
+        {{ getIconForFile(file) }}{{ file.getFileName }}
       </a>
       {% endfor %}
     </ul>
